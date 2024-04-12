@@ -20,5 +20,4 @@ public class UserRequest {
     private double accountBalance;
     private String email;
     private String phoneNumber;
-    private String alternativePhoneNumber;
 }

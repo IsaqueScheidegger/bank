@@ -2,64 +2,54 @@ package com.app.project.bank.controller;
 
 import com.app.project.bank.dto.*;
 import com.app.project.bank.service.impl.UserService;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api/user")
-@Tag(name = "User Account Management APIs")
+@Controller
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
-    UserService userService;
-    @Operation(
-            summary = "Create a New User Account",
-            description =  "Creating a new user and assigning an account ID"
-    )
-    @ApiResponse(
-            responseCode = "201",
-            description = "Http Status 201 CREATED"
-    )
+    private UserService userService;
 
-    @PostMapping
-    public BankResponse createAccount(@RequestBody UserRequest userRequest) {
-        return userService.createAccount(userRequest);
-    }
-    @Operation(
-            summary = "Balance Enquiry",
-            description =  "Given an account number, check how much the user has"
-    )
-    @ApiResponse(
-            responseCode = "200",
-            description = "Http Status 201 SUCCESS"
-    )
-
-
-    @GetMapping("balanceEnquiry")
-    public BankResponse balanceEnquiry(@RequestBody EnquiryRequest request){
-        return userService.balanceEnquiry(request);
+    @GetMapping("/create")
+    public String showCreateUserPage(Model model) {
+        model.addAttribute("userRequest", new UserRequest());
+        return "create_user";
     }
 
-    @GetMapping("nameEnquiry")
-    public String nameEnquiry(@RequestBody EnquiryRequest request){
-        return userService.nameEnquiry(request);
+    @PostMapping("/create")
+    public String createUser(@ModelAttribute UserRequest userRequest, Model model) {
+        BankResponse response = userService.createAccount(userRequest);
+        model.addAttribute("response", response);
+        return "create_user_result";
     }
 
-    @PostMapping("credit")
-    public BankResponse creditAccount (@RequestBody CreditDebitRequest request){
-        return userService.creditAccount(request);
+    @GetMapping("/transfer")
+    public String showTransferPage(Model model) {
+        model.addAttribute("transferRequest", new TransferRequest());
+        return "transfer";
     }
 
-    @PostMapping("debit")
-    public BankResponse debitAccount (@RequestBody CreditDebitRequest request){
-        return userService.debitAccount(request);
+    @PostMapping("/transfer")
+    public String transfer(@ModelAttribute TransferRequest transferRequest, Model model) {
+        BankResponse response = userService.transfer(transferRequest);
+        model.addAttribute("response", response);
+        return "transfer_result";
     }
 
-    @PostMapping("transfer")
-    public BankResponse transfer(@RequestBody TransferRequest request){
-        return userService.transfer(request);
+    @GetMapping("/balanceEnquiry")
+    public String showBalanceEnquiryPage(Model model) {
+        model.addAttribute("enquiryRequest", new EnquiryRequest());
+        return "balance_enquiry";
+    }
+
+    @PostMapping("/balanceEnquiry")
+    public String balanceEnquiry(@ModelAttribute EnquiryRequest enquiryRequest, Model model) {
+        BankResponse response = userService.balanceEnquiry(enquiryRequest);
+        model.addAttribute("response", response);
+        return "balance_enquiry_result";
     }
 }

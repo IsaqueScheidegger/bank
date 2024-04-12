@@ -41,7 +41,6 @@ public class UserServiceImpl implements UserService {
                 .accountBalance(BigDecimal.valueOf(userRequest.getAccountBalance()))
                 .email(userRequest.getEmail())
                 .phoneNumber(userRequest.getPhoneNumber())
-                .alternativePhoneNumber(userRequest.getAlternativePhoneNumber())
                 .status("ACTIVE")
                 .build();
 
@@ -49,12 +48,12 @@ public class UserServiceImpl implements UserService {
         //Send email Alert
         EmailDetails emailDetails = EmailDetails.builder()
                 .recipient(savedUser.getEmail())
-                .subject("Bank Account Creation")
-                .messageBody("Congratulation! Your account has been successfully created." +
-                        "\nYour Account Details: " +
-                        "\nAccount Name: " + savedUser.getFirstName() + " " + savedUser.getLastName() +
-                        "\nAccount Number: " + savedUser.getAccountNumber() +
-                        savedUser.getAccountBalance())
+                .subject("Criação de Conta Bancária")
+                .messageBody("Parabéns! Sua conta foi criada com sucesso." +
+                        "\nDetalhes da Sua Conta: " +
+                        "\nNome da Conta: " + savedUser.getFirstName() + " " + savedUser.getLastName() +
+                        "\nNúmero da Conta: " + savedUser.getAccountNumber() +
+                        "\nSaldo da Conta: " + savedUser.getAccountBalance())
                 .build();
 
         emailService.sendEmailAlert(emailDetails);

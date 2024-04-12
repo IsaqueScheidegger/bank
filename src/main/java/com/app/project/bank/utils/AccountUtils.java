@@ -6,35 +6,35 @@ public class AccountUtils {
 
     public static final String ACCOUNT_EXISTS_CODE = "001";
 
-    public static final String ACCOUNT_EXISTS_MESSAGE = "THIS USER ALREADY HAS AN ACCOUNT CREATED!";
+    public static final String ACCOUNT_EXISTS_MESSAGE = "ESTE USUÁRIO JÁ POSSUI UMA CONTA CRIADA!";
 
     public static final String ACCOUNT_CREATION_SUCCESS = "002";
 
-    public static final String ACCOUNT_CREATION_MESSAGE = "ACCOUNT HAS BEEN SUCCESSFULLY CREATED!";
+    public static final String ACCOUNT_CREATION_MESSAGE = "CONTA CRIADA COM SUCESSO!";
 
     public static final String ACCOUNT_NOT_EXISTS_CODE = "003";
 
-    public static final String ACCOUNT_NOT_EXISTS_MESSAGE = "USER WITH THE PROVIDED NUMBER DOESN'T EXIST...";
+    public static final String ACCOUNT_NOT_EXISTS_MESSAGE = "USUÁRIO COM O NÚMERO FORNECIDO NÃO EXISTE...";
 
     public static final String ACCOUNT_FOUND_CODE = "004";
 
-    public static final String ACCOUNT_FOUND_SUCCESS = "USER ACCOUNT FOUND...";
+    public static final String ACCOUNT_FOUND_SUCCESS = "CONTA DE USUÁRIO ENCONTRADA...";
 
     public static final String ACCOUNT_CREDITED_SUCCESS = "005";
 
-    public static final String ACCOUNT_CREDIT_SUCCESS_MESSAGE = "USER ACCOUNT WAS CREDITED SUCCESSFULLY! ";
+    public static final String ACCOUNT_CREDIT_SUCCESS_MESSAGE = "CONTA DO USUÁRIO CREDITADA COM SUCESSO! ";
 
     public static final String INSUFFICIENT_BALANCE_CODE = "006";
 
-    public static final String INSUFFICIENT_BALANCE_MESSAGE = "INSUFFICIENT BALANCE...";
+    public static final String INSUFFICIENT_BALANCE_MESSAGE = "SALDO INSUFICIENTE...";
 
     public static final String ACCOUNT_DEBITED_SUCCESS = "007";
 
-    public static final String ACCOUNT_DEBITED_MESSAGE = "ACCOUNT HAS BEEN SUCCESSFULLY DEBITED!";
+    public static final String ACCOUNT_DEBITED_MESSAGE = "CONTA DEBITADA COM SUCESSO!";
 
     public static final String TRANSFER_SUCCESSFUL_CODE = "008";
 
-    public static final String TRANSFER_SUCCESSFUL_MESSAGE = "TRANSFER SUCCESSFUL";
+    public static final String TRANSFER_SUCCESSFUL_MESSAGE = "TRANSFERÊNCIA REALIZADA COM SUCESSO";
 
 
     public static String generateAccountNumber(){
