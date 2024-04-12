@@ -32,6 +32,10 @@ public class AccountUtils {
 
     public static final String ACCOUNT_DEBITED_MESSAGE = "ACCOUNT HAS BEEN SUCCESSFULLY DEBITED!";
 
+    public static final String TRANSFER_SUCCESSFUL_CODE = "008";
+
+    public static final String TRANSFER_SUCCESSFUL_MESSAGE = "TRANSFER SUCCESSFUL";
+
 
     public static String generateAccountNumber(){
         /**

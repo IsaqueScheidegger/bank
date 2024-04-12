@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Contas Bancárias - Transferência de Fundos</title>
+</head>
+<body>
+<h1>Transferência de Fundos</h1>
+
+<!-- Formulário para realizar uma transferência de fundos -->
+<form id="transferForm" th:action="@{/api/user/transfer}" method="post">
+    <label for="sourceAccountNumber">Número da Conta de Origem:</label>
+    <input type="text" id="sourceAccountNumber" name="sourceAccountNumber" required><br>
+
+    <label for="destinationAccountNumber">Número da Conta de Destino:</label>
+    <input type="text" id="destinationAccountNumber" name="destinationAccountNumber" required><br>
+
+    <label for="amount">Valor da Transferência:</label>
+    <input type="number" id="amount" name="amount" required><br>
+
+    <button type="submit">Transferir Fundos</button>
+</form>
+
+<!-- Div para exibir resultados -->
+<div id="result" th:text="${result}"></div>
+</body>
+</html>

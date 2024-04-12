@@ -1,9 +1,7 @@
 package com.app.project.bank.service.impl;
 
-import com.app.project.bank.dto.BankResponse;
-import com.app.project.bank.dto.CreditDebitRequest;
-import com.app.project.bank.dto.EnquiryRequest;
-import com.app.project.bank.dto.UserRequest;
+import com.app.project.bank.dto.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public interface UserService {
     BankResponse createAccount(UserRequest userRequest);
@@ -12,4 +10,7 @@ public interface UserService {
 
     BankResponse creditAccount(CreditDebitRequest request);
     BankResponse debitAccount(CreditDebitRequest request);
+
+    BankResponse transfer(TransferRequest request);
+
 }
