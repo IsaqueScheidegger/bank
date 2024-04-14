@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Bank-APP</title>
+    <link rel="stylesheet" href="/css/create_user.css">
+</head>
+<body>
+<div class="main_div">
+    <h1 id="title">Crie seu Cadastro</h1>
+    <form action="/user/create" method="post" th:object="${userRequest}">
+
+        <label id="label_firstName" for="firstName">Nome:</label>
+        <input type="text" id="firstName" name="firstName" required><br>
+
+        <label id="label_lastName"for="lastName">Sobrenome(s):</label>
+        <input type="text" id="lastName" name="lastName" required><br>
+
+        <label for="gender">Gênero:</label>
+        <select id="gender" name="gender" required>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+        </select><br>
+
+        <label for="address">Endereço:</label>
+        <input placeholder="Rua, 000, Bairro, Cidade - Estado" type="text" id="address" name="address" required><br>
+
+        <label for="stateOfOrigin">Estado de Origem:</label>
+        <select type="text" id="stateOfOrigin" name="stateOfOrigin" required>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+            <option value="EX">Estrangeiro</option>
+        </select><br>
+
+        <label for="accountBalance">Saldo da Conta:</label>
+        <input type="number" id="accountBalance" step="0.01" name="accountBalance" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="phoneNumber">Número de Telefone:</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" required><br>
+
+        <input type="submit" id="criar-btn" value="Criar Usuário">
+        </div>
+    </form>
+</body>
+</html>

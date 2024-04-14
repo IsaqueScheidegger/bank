@@ -223,9 +223,9 @@ public class UserServiceImpl implements UserService {
         String sourceUsername = sourceAccountUser.getFirstName() + " " + sourceAccountUser.getLastName();
         userRepository.save(sourceAccountUser);
         EmailDetails debitAlert = EmailDetails.builder()
-                .subject("DEBIT ALERT")
+                .subject("ALERTA DE DÉBITO")
                 .recipient(sourceAccountUser.getEmail())
-                .messageBody("The sum of " + request.getAmount() + " has been deducted from your account! \n YOUR CURRENT BALANCE IS: " + sourceAccountUser.getAccountBalance())
+                .messageBody("O valor de " + request.getAmount() + " foi debitado de sua conta! \n SEU SALDO ATUAL É: " + sourceAccountUser.getAccountBalance())
                 .build();
 
         emailService.sendEmailAlert(debitAlert);
@@ -244,9 +244,9 @@ public class UserServiceImpl implements UserService {
         //String recipientUsername = destinationAccountUser.getFirstName() + " " + destinationAccountUser.getLastName();
         userRepository.save(destinationAccountUser);
         EmailDetails creditAlert = EmailDetails.builder()
-                .subject("CREDIT")
+                .subject("CRÉDITO")
                 .recipient(destinationAccountUser.getEmail())
-                .messageBody("The sum of " + request.getAmount() + " has been sent to your account, from " + sourceUsername + "{\n YOUR CURRENT BALANCE IS: " + sourceAccountUser.getAccountBalance())
+                .messageBody("O valor de " + request.getAmount() + " foi enviado para sua conta, de " + sourceUsername + ".\n SEU SALDO ATUAL É: " + sourceAccountUser.getAccountBalance())
                 .build();
 
         emailService.sendEmailAlert(creditAlert);

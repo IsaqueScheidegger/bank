@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Transferência</title>
+    <link rel="stylesheet" href="../static/css/transfer.css">
+</head>
+<body>
+<div class="main_div">
+<h1 id="title">Transferência</h1>
+<form action="/user/transfer" method="post" th:object="${transferRequest}">
+    <label for="sourceAccountNumber">Número da Conta de Origem:</label>
+    <input type="text" id="sourceAccountNumber" name="sourceAccountNumber" required><br>
+
+    <label for="destinationAccountNumber">Número da Conta de Destino:</label>
+    <input type="text" id="destinationAccountNumber" name="destinationAccountNumber" required><br>
+
+    <label for="amount">Valor:</label>
+    <input type="number" id="amount" step="0.01" name="amount" required><br>
+
+    <input type="submit" value="Transferir">
+</form>
+</div>
+</body>
+</html>

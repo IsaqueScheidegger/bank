@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado da Transferência</title>
+    <link rel="stylesheet" href="../static/css/transfer_result.css">
+</head>
+<body>
+<div class="main_div">
+<h1 id="title">Resultado da Transferência</h1>
+<h2 th:text="${response.responseMessage}"></h2>
+    <div>
+        <p><strong>Conta de Origem:</strong> <span id="sourceAccount"></span></p>
+        <p><strong>Conta de Destino:</strong> <span id="destinationAccount"></span></p>
+        <p><strong>Valor:</strong> <span id="amount"></span></p>
+    </div>
+<a href="/user/transfer">Fazer outra transferência</a>
+
+    <script>
+        fetch('URL_PARA_O_ENDPOINT_DE_TRANSFERENCIA')
+            .then(response => response.json())
+            .then(data => {
+                // Preencher os detalhes da transferência na página HTML
+                document.getElementById('sourceAccount').textContent = data.sourceAccount;
+                document.getElementById('destinationAccount').textContent = data.destinationAccount;
+                document.getElementById('amount').textContent = data.amount;
+            })
+            .catch(error => console.error('Erro ao obter os detalhes da transferência:', error));
+    </script>
+</div>
+</body>
+</html>
